@@ -132,11 +132,13 @@ public class Main {
     
     // Método utilitario (sin cambios)
     private static double obtenerPrecio (String producto) { 
-        switch (producto) {
-            case "laptop": return 4000;
-            case "teclado": return 120;
-            case "mouse": return 80;
-            default: return 0;
+    switch (producto) {
+        case "laptop": return 4000;
+        case "teclado": return 120;
+        case "mouse": return 80;
+        default:
+            System.out.println("Producto no reconocido. Precio = 0.");
+            return 0;
         }
     }
 }
