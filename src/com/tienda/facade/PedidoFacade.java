@@ -20,9 +20,14 @@ public class PedidoFacade {
     private final List<PedidoObserver> observers = new ArrayList<>(); // Nuevo
 
     // -- MÉTODOS OBSERVER --
-    public void attach(PedidoObserver observer) { // Nuevo
-        observers.add(observer);
+    public void attach(PedidoObserver observer) {
+    if (observer == null) { 
+        System.out.println("[Facade] Advertencia: intento de registrar un observer nulo.");
+        return;
+        }
+    observers.add(observer);
     }
+
 
     public void notifyObservers(String cliente, double total) { // Nuevo
         for (PedidoObserver observer : observers) {
