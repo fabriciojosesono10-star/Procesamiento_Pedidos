@@ -9,12 +9,16 @@ public class PedidoRepository {
     
     // AÑADE 'synchronized' AQUÍ
     public synchronized void guardar(Pedido pedido) { 
+        if (pedido == null) {
+            System.out.println("[Repository] Advertencia: intento de guardar un pedido nulo");
+            return; // mejora sin tocar estructura
+        }
+
         pedidos.add(pedido);
-        // Ahora el número de pedido será secuencial y correcto
         System.out.println("[Repository] Pedido guardado: #" + pedidos.size()); 
     }
 
     public List<Pedido> obtenerTodos() {
-        return new ArrayList<>(pedidos);
+        return new ArrayList<>(pedidos); // copia segura
     }
 }
