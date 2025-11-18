@@ -27,6 +27,12 @@ public class Pedido {
         total = subtotal + igv;
     }
 
+    // ⭐ Nuevo cambio sin alterar estructura principal
+    public void setImpuestoStrategy(ImpuestoStrategy impuestoStrategy) {
+        this.impuestoStrategy = impuestoStrategy;
+        calcularTotales(); // recalcula totales al cambiar la estrategia
+    }
+
     public String getProducto() { return producto; }
     public double getSubtotal() { return subtotal; }
     public double getIgv() { return igv; }
